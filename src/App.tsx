@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import "./App.css";
 
 function App() {
-  const [user, setUser] = useState<Profile>();
+  const [user, setUser] = useState<Profile | null>(null);
 
   useEffect(() => {
     liff.getProfile().then((r) => {
@@ -12,11 +12,7 @@ function App() {
     });
   }, []);
 
-  return (
-    <div>
-      <h1>Hello {user?.displayName}</h1>
-    </div>
-  );
+  return <div>{user !== null ? <h1>Hello {user.displayName}</h1> : ""}</div>;
 }
 
 export default App;
