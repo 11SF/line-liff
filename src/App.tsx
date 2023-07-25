@@ -10,7 +10,7 @@ function App() {
   useEffect(() => {
     liff
       .init({
-        liffId: "2000214509-NzW3XVOX", // Use own liffId
+        liffId: "2000214509-NzW3XVOX",
       })
       .then(() => {
         if (liff.isLoggedIn()) {
@@ -27,17 +27,22 @@ function App() {
       });
   }, []);
 
-  // useEffect(() => {
-  //   if (liff.isLoggedIn()) {
-  //     liff.getProfile().then((r) => {
-  //       setUser(r);
-  //     });
-  //   } else {
-  //     liff.login();
-  //   }
-  // }, []);
-
-  return <div>{user !== null ? <h1>Hello {user.displayName}</h1> : ""}</div>;
+  return (
+    <div>
+      {user !== null ? (
+        <>
+          <img
+            className="h-24 w-24 bg-slate-400 rounded-full"
+            alt="img"
+            src={user?.pictureUrl}
+          ></img>
+          <h1>Hello {user.displayName}</h1>
+        </>
+      ) : (
+        ""
+      )}
+    </div>
+  );
 }
 
 export default App;
