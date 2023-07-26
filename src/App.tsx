@@ -37,6 +37,9 @@ function App() {
             src={user?.pictureUrl}
           ></img>
           <h1>Hello {user.displayName}</h1>
+          <p>Version: {liff.getVersion()}</p>
+          <p>Line version: {liff.getLineVersion()}</p>
+          <p>OS: {liff.getOS()}</p>
         </>
       ) : (
         ""
