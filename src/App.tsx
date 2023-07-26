@@ -32,7 +32,7 @@ function App() {
       {user !== null ? (
         <>
           <img
-            className="w-1/6 rounded-full object-cover mx-auto"
+            className="w-2/6 rounded-full object-cover mx-auto"
             alt="img"
             src={user?.pictureUrl}
           ></img>
