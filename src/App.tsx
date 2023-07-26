@@ -6,6 +6,7 @@ import "./App.css";
 
 function App() {
   const [user, setUser] = useState<Profile | null>(null);
+  const [scanCode, setScanCode] = useState<string>("");
 
   useEffect(() => {
     liff
@@ -40,6 +41,16 @@ function App() {
           <p>Version: {liff.getVersion()}</p>
           <p>Line version: {liff.getLineVersion()}</p>
           <p>OS: {liff.getOS()}</p>
+          <button
+            onClick={() => {
+              liff.scanCodeV2().then((r) => {
+                setScanCode(r.value ?? "");
+              });
+            }}
+          >
+            Scan OR
+          </button>
+          <p>Scan result: {scanCode}</p>
         </>
       ) : (
         ""
